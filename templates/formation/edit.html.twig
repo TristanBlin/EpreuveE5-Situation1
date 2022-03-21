@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une formation{% endblock %}
+
+{% block body %}
+    <h1 align="center">Modifier une formation</h1><br><br>
+     <div class="container raw col-5" align="center">
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            {{ include('formation/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            <a href="{{ path('formation_index') }}">Retourner à la liste</a>
+            {{ include('formation/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

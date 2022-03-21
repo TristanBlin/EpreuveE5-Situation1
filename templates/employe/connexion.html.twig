@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <h1>Se connecter</h1>
+
+
+
+    {{ include('employe_crud/_form.html.twig', {'button_label': 'Se connecter'}) }}
+
+    <a href="{{ path('employe_crud_index') }}">Retourner à la liste</a>
+{% endblock %}

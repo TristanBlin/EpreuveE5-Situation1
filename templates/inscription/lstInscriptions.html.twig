@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Inscriptions{% endblock %}
+
+{% block body %}     
+
+    <table class="table">
+        <img src="https://cdn.discordapp.com/attachments/930401194818568222/943525415123828776/Screenshot_2022-02-14_at_16.50.16.png" height = 300 width = 300>
+        <thead>
+        <h1>Liste des inscriptions </h1><br><br>
+            <tr>
+                <th>Id    </th>
+                <th>statut    </th>
+                <th>employe    </th>
+                <th>id de la formation    </th>
+                <th>Departement </th>
+
+            </tr>
+        </thead>
+            {% for inscription in inscriptions %}
+                <tr>
+                    <td>{{ inscription.id }}</td>
+                    <td>{{ inscription.statut}}</td>
+                    <td>{{ inscription.employe.nom }}</td>
+                    <td>{{ inscription.formation.id }}</td>
+                    <td>{{ inscription.formation.departement }}</td>
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

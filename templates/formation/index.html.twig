@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des formations{% endblock %}
+
+{% block body %}
+    <h1 align="center">Liste des formations</h1><br><br>
+    <div class="container raw col-10" align="center">
+        <table class="table shadow-lg p-3 mb-5 bg-body rounded" >
+            <thead class="thead thead-light">
+                <tr>
+                    <th>Id     </th>
+                    <th>Date de début     </th>
+                    <th>Nombre d'heures     </th>
+                    <th>Departement     </th>
+                    <th>Produit</th>
+                    <th>actions     </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for formation in formations %}
+                <tr>
+                    <td>{{ formation.id }}</td>
+                    <td>{{ formation.dateDebut ? formation.dateDebut|date('Y-m-d') : '' }}</td>
+                    <td>{{ formation.nbresHeures }}</td>
+                    <td>{{ formation.departement }}</td>
+                    <td>{{ formation.produit.libelle }}</td>
+                    <td>
+                        <a href="{{ path('formation_show', {'id': formation.id}) }}">Voir</a>
+                        <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modifer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Pas de formations trouvées</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

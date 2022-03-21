@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscriptions{% endblock %}
+
+{% block body %}
+<div align="center">
+    <h1>Valider ou non les inscriptions</h1><br><br>
+
+    <h1>Valider votre choix</h1><br><br>
+
+    {{ include('formation/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    <a href="{{ path('inscription_index') }}">Retour</a>
+</div>
+{% endblock %}

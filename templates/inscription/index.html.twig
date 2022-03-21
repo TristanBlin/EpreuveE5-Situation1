@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1 align="center">Liste des inscriptions</h1><br><br>
+    <div class="container raw col-10" align="center">
+        <table class="table shadow-lg p-3 mb-5 bg-body rounded">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Statut</th>
+                    <th>Formation</th>
+                    <th>Employe</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for inscription in inscriptions %}
+                <tr>
+                    <td>{{ inscription.id }}</td>
+                    <td>{{ inscription.statut }}</td>
+                    <td>{{ inscription.formation.id }}</td>
+                    <td>{{ inscription.employe.login }}</td>
+                    <td>
+                        <a href="{{ path('inscription_accept', {'id': inscription.id}) }}" class="btn btn-success" >Accepter</a>
+                        <a href="{{ path('inscription_refuse', {'id': inscription.id}) }}" class="btn btn-danger" >Refuser</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Pas d'inscriptions trouvées</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div align="center">
+        <h3>Ajouter une nouvelle formation</h3><br>
+
+        <a href="{{ path('formation_new') }}">Nouvelle formation</a>
+        <br>
+        <a href="{{ path('formation_index') }}">Liste des formations</a>
+    </div><br><br>
+
+{% endblock %}

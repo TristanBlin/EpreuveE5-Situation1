@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+
+    <h1 align="center">Créer une nouvelle formation</h1><br><br>
+    <div class="container" align="center">
+        <div class="row col-4 shadow-lg p-3 mb-5 bg-body rounded">
+            {{ include('formation/_form.html.twig') }}
+            <a href="{{ path('inscription_index') }}"> Liste des inscriptions</a>
+        </div>
+    </div>
+
+{% endblock %}

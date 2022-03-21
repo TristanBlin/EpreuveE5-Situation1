@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'employe{% endblock %}
+
+{% block body %}
+    <h1 align="center">Modifier l'employe</h1><br><br>
+    <div class="container" align="center">
+        <div class="row col-6 shadow-lg p-3 mb-5 bg-body rounded">
+            {{ include('employe/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+            <a href="{{ path('employe_index') }}">Retourner à la liste</a>
+
+            {{ include('employe/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
