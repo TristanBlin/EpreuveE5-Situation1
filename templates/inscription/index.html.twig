@@ -8,9 +8,7 @@
         <table class="table shadow-lg p-3 mb-5 bg-body rounded">
             <thead class="thead-dark">
                 <tr>
-                    <th>Id</th>
                     <th>Statut</th>
-                    <th>Formation</th>
                     <th>Employe</th>
                     <th>actions</th>
                 </tr>
@@ -18,9 +16,7 @@
             <tbody>
             {% for inscription in inscriptions %}
                 <tr>
-                    <td>{{ inscription.id }}</td>
                     <td>{{ inscription.statut }}</td>
-                    <td>{{ inscription.formation.id }}</td>
                     <td>{{ inscription.employe.login }}</td>
                     <td>
                         <a href="{{ path('inscription_accept', {'id': inscription.id}) }}" class="btn btn-success" >Accepter</a>

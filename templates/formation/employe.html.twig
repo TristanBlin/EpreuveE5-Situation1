@@ -8,7 +8,6 @@
         <table class="table shadow-lg p-3 mb-5 bg-body rounded" >
         <thead>
             <tr>
-                <th>Id    </th>
                 <th>Date de début     </th>
                 <th>Nombre d'heures     </th>
                 <th>Departement    </th>
@@ -19,7 +18,6 @@
         <tbody> 
         {% for formation in formations %}
             <tr>
-                <td>{{ formation.id }}</td>
                 <td>{{ formation.dateDebut ? formation.dateDebut|date('Y-m-d') : '' }}</td>
                 <td>{{ formation.nbresHeures }}</td>
                 <td>{{ formation.departement }}</td>
@@ -42,20 +40,17 @@
         <table class="table shadow-lg p-3 mb-5 bg-body rounded" >
         <thead>
             <tr>
-                <th>Id    </th>
                 <th>statut    </th>
                 <th>employe    </th>
-                <th>id de la formation    </th>
                 <th>Departement </th>
 
             </tr>
         </thead>
             {% for inscription in inscriptions %}
                 <tr>
-                    <td>{{ inscription.id }}</td>
+                    
                     <td>{{ inscription.statut}}</td>
                     <td>{{ inscription.employe.nom }}</td>
-                    <td>{{ inscription.formation.id }}</td>
                     <td>{{ inscription.formation.departement }}</td>
 
                 </tr>
