@@ -24,7 +24,7 @@ class Employe1Controller extends AbstractController
         ]);
     }
     /**
-    * @Route("/authentification", name="authentification")
+    * @Route("/", name="authentification")
     */
     public function loginDure(Request $request, FormationRepository $formationRepository, InscriptionRepository $inscriptionRepository)
     {  
