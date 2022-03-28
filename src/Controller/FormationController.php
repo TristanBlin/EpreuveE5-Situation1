@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Formation;
+use App\Entity\Inscription;
 use App\Form\FormationType;
 use App\Repository\FormationRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -84,6 +85,16 @@ class FormationController extends AbstractController
     public function delete(Request $request, Formation $formation, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$formation->getId(), $request->request->get('_token'))) {
+
+            
+            $inscriptions = $this->getDoctrine()->getRepository(inscription::class)->findByFormation($formation);
+
+            foreach ( $inscriptions as $inscription ){
+                $entityManager->remove($inscription);
+                $entityManager->flush();
+            }
+
+
             $entityManager->remove($formation);
             $entityManager->flush();
         }

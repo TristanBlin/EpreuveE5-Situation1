@@ -133,12 +133,6 @@ class EmployeController extends AbstractController
                 [],
                 1
             );
-        //    if (($myData["login"]=="toto")&&  ($myData["mdp"]=="toto")){              
-        //             return $this->redirectToRoute('app_liste_formations');
-        //         }
-        //    if (($myData["login"]=="titi")&& ($myData["mdp"]=="titi")){                
-        //             return $this->redirectToRoute('app_inscription');                  
-        //     }
         }
        return $this->render('employe/loginDure.html.twig', array('form'=>$form->createView()));
     }
