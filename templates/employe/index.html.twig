@@ -1,16 +1,31 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('CSS/style.css') }}">{% endblock %}
 
 {% block title %}Liste des employés{% endblock %}
 
 {% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+<a class="navbar-brand" href="#"><img width="75" src="https://cdn.discordapp.com/attachments/755825390806761655/953271623614607380/logoSymfony.jpg" />    Projet Symfony</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="http://localhost/symfony/formation">  Formations</a>
+        <a class="nav-link" href="http://localhost/symfony/inscription"> Liste des inscriptions</a>
+        <a class="nav-link" href="#"> Employes</a>
+      </div>
+    </div>
+  </div>
+</nav><br>
     <h1 align="center">Liste des employés</h1><br><br>
 
     <div class="container raw col-10" align="center">
         <table class="table shadow-lg p-3 mb-5 bg-body rounded" >
             <thead class="thead-dark">
-                <tr>
+                <tr align="center">
                     <th>Login</th>
-                    <th>Mdp</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Statut</th>
@@ -19,9 +34,8 @@
             </thead>
             <tbody>
             {% for employe in employes %}
-                <tr>
+                <tr align="center">
                     <td>{{ employe.login }}</td>
-                    <td>{{ employe.mdp }}</td>
                     <td>{{ employe.nom }}</td>
                     <td>{{ employe.prenom }}</td>
                     <td>{{ employe.statut }}</td>
@@ -39,6 +53,6 @@
         </table>
     </div>
     <div align="center">
-        <a href="{{ path('employe_new') }}">Insérer un nouvel employe</a>
+        <a href="{{ path('employe_new') }}" class="btn btn-secondary">Insérer un nouvel employe</a>
     </div>
 {% endblock %}

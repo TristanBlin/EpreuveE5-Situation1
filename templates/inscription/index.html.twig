@@ -1,16 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Inscription{% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('CSS/style.css') }}">{% endblock %}
 
 {% block body %}
-<div align="center">
-    <img src="https://cdn.discordapp.com/attachments/755825390806761655/953271623614607380/logoSymfony.jpg" />
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+<a class="navbar-brand" href="#"><img width="75" src="https://cdn.discordapp.com/attachments/755825390806761655/953271623614607380/logoSymfony.jpg" />     Projet Symfony</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="http://localhost/symfony/formation">  Formations</a>
+        <a class="nav-link" href="#"> Liste des inscriptions</a>
+        <a class="nav-link" href="http://localhost/symfony/employe"> Employes</a>
+      </div>
+    </div>
+  </div>
+</nav><br>
     <h1 align="center">Liste des inscriptions</h1><br><br>
     <div class="container raw col-7" align="center">
         <table class="table shadow-lg p-3 mb-5 bg-body rounded">
             <thead class="thead-dark">
-                <tr>
+                <tr align="center">
                     <th>Statut</th>
                     <th>Formation</th>
                     <th>Employe</th>
@@ -19,7 +32,7 @@
             </thead>
             <tbody>
             {% for inscription in inscriptions %}
-                <tr>
+                <tr align="center">
                     <td>{{ inscription.statut }}</td>
                     <td>{{ inscription.formation.id }}</td>
                     <td>{{ inscription.employe.login }}</td>
@@ -40,9 +53,9 @@
     <div align="center">
         <h3>Ajouter une nouvelle formation</h3><br>
 
-        <a href="{{ path('formation_new') }}">Nouvelle formation</a>
+        <a href="{{ path('formation_new') }}" class="btn btn-secondary">Nouvelle formation</a><br>
         <br>
-        <a href="{{ path('formation_index') }}">Liste des formations</a>
+        <a href="{{ path('formation_index') }}" class="btn btn-secondary">Liste des formations</a>
     </div><br><br>
 
 {% endblock %}

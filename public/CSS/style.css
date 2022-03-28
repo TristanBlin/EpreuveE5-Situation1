@@ -1,0 +1,10 @@
+body{
+    background: rgb(50,231,241); 
+    background: radial-gradient(circle, rgba(50,231,241,1) 0%, rgba(1,119,126,1) 36%, rgba(21,158,134,1) 100%); 
+}
+#connectInterface{
+    background-color:white;
+    width: 400px;
+    height: fit-content;
+    min-height: 450px;
+}

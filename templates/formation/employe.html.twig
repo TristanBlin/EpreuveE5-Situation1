@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Formation{% endblock %}
-
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('CSS/style.css') }}">{% endblock %}
 {% block body %}
 <div align="center">
     <img src="https://cdn.discordapp.com/attachments/755825390806761655/953271623614607380/logoSymfony.jpg" />
@@ -10,7 +10,7 @@
     <div class="container raw col-10" align="center">
         <table class="table shadow-lg p-3 mb-5 bg-body rounded" >
         <thead>
-            <tr>
+            <tr align="center">
                 <th>Date de début     </th>
                 <th>Nombre d'heures     </th>
                 <th>Departement    </th>
@@ -20,8 +20,8 @@
         </thead>
         <tbody> 
         {% for formation in formations %}
-            <tr>
-                <td>{{ formation.dateDebut ? formation.dateDebut|date('Y-m-d') : '' }}</td>
+            <tr align="center">
+                <td>{{ formation.dateDebut ? formation.dateDebut|date('d-m-Y') : '' }}</td>
                 <td>{{ formation.nbresHeures }}</td>
                 <td>{{ formation.departement }}</td>
                 <td>{{ formation.produit.libelle }}</td>
@@ -38,23 +38,23 @@
     </div>
 
 <br><br>
-    <h1 align = "center">Liste des formations déjà inscris</h1>  <br><br>
-    <div class="container raw col-10" align="center">
+    <h1 align = "center">Liste des formations déjà inscrit</h1>  <br><br>
+    <div class="container raw col-6" align="center">
         <table class="table shadow-lg p-3 mb-5 bg-body rounded" >
         <thead>
-            <tr>
+            <tr align="center">
                 <th>statut    </th>
-                <th>employe    </th>
-                <th>Departement </th>
+                <th align="center">Departement </th>
+                <th align="center">Produit</th>
 
             </tr>
         </thead>
             {% for inscription in inscriptions %}
-                <tr>
+                <tr align="center">
                     
                     <td>{{ inscription.statut}}</td>
-                    <td>{{ inscription.employe.nom }}</td>
-                    <td>{{ inscription.formation.departement }}</td>
+                    <td >{{ inscription.formation.departement }}</td>
+                    <td >{{ inscription.formation.produit.libelle }}</td>
 
                 </tr>
             {% else %}
@@ -64,5 +64,6 @@
             {% endfor %}
         </tbody>
     </table>
+    <h6 align = "left">A = Accepter, E = En cours, R = Refuser</h6>  <br><br>
     </div>
 {% endblock %}
